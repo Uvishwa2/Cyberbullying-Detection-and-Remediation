@@ -87,10 +87,6 @@ F1 Score	72.18%
 Because the dataset is imbalanced, precision, recall, and F1 score are also considered when evaluating the model.
 
 Example
-## Demo
-
-![Project Demo](demo.png)
-
 Cyberbullying Detection System
 1. Check Message
 2. Exit
@@ -102,6 +98,10 @@ Result: Potentially Harmful
 Action: Harmful content detected.
 Action: Content removed.
 Remediated Message: [Content removed due to harmful language]
+
+## Demo
+
+![Project Demo](demo.png)
 
 
 Project Structure
