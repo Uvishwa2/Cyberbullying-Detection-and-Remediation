@@ -1,11 +1,14 @@
 # Cyberbullying Detection and Remediation
 
-A simple rule-based Python prototype for detecting potentially harmful cyberbullying content and applying basic remediation actions.
+A Python-based machine learning project for detecting potentially harmful online content and applying a simulated remediation action.
+
+The project uses TF-IDF text vectorization and Logistic Regression to classify text as either Safe or Potentially Harmful.
 
 ## Features
 
 - Accepts user messages through a command-line interface
-- Detects potentially harmful words and phrases
+- Converts text into numerical features using TF-IDF
+- Uses Logistic Regression for text classification
 - Classifies messages as Safe or Potentially Harmful
 - Handles empty input
 - Applies simulated content removal for harmful messages
@@ -15,34 +18,32 @@ A simple rule-based Python prototype for detecting potentially harmful cyberbull
 ## Technologies Used
 
 - Python
-- Functions
-- Lists
-- Loops
-- Conditional Statements
-- String Handling
-- Input Validation
+- Pandas
+- Scikit-learn
+- TF-IDF
+- Logistic Regression
+- Joblib
+- Git and GitHub
 
-## How It Works
-
-The system follows a simple process:
-
-1. User enters a message.
-2. The system checks the message against a predefined list of potentially harmful words and phrases.
-3. The message is classified as either Safe or Potentially Harmful.
-4. If harmful content is detected, the system applies a simulated remediation action.
-5. The harmful message is replaced with a removal message.
-
-## Example
+## Machine Learning Pipeline
 
 ```text
-Cyberbullying Detection System
-1. Check Message
-2. Exit
-
-Enter your choice: 1
-Enter a message: You are stupid
-
-Result: Potentially Harmful
-Action: Harmful content detected.
-Action: Content removed.
-Remediated Message: [Content removed due to harmful language]
+Text Dataset
+     ↓
+Train/Test Split
+     ↓
+TF-IDF Vectorization
+     ↓
+Logistic Regression
+     ↓
+Model Evaluation
+     ↓
+Saved ML Model
+     ↓
+New User Message
+     ↓
+Prediction
+     ↓
+Safe / Potentially Harmful
+     ↓
+Simulated Remediation
