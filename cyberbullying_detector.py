@@ -1,27 +1,25 @@
-# Cyberbullying Detection and Remediation
-# A simple rule-based Python prototype for detecting
-# potentially harmful messages and applying remediation.
+import joblib
+
+
+# Load trained ML model and TF-IDF vectorizer
+model = joblib.load("cyberbullying_model.pkl")
+vectorizer = joblib.load("tfidf_vectorizer.pkl")
+
 
 def detect_cyberbullying(message):
-    harmful_words = [
-    "stupid",
-    "idiot",
-    "hate",
-    "loser",
-    "ugly",
-    "shut up",
-    "dumb"
-]
+    # Convert message into TF-IDF features
+    message_tfidf = vectorizer.transform([message])
 
-    for word in harmful_words:
-        if word in message.lower():
-            return "Potentially Harmful"
+    # Predict using trained model
+    prediction = model.predict(message_tfidf)[0]
 
-    return "Safe"
-    
+    if prediction == 1:
+        return "Potentially Harmful"
+    else:
+        return "Safe"
 
 
-def remediate_content(message):
+def remediate_content():
     print("Action: Harmful content detected.")
     print("Action: Content removed.")
     return "[Content removed due to harmful language]"
@@ -47,7 +45,7 @@ def main():
             print("Result:", result)
 
             if result == "Potentially Harmful":
-                message = remediate_content(message)
+                message = remediate_content()
                 print("Remediated Message:", message)
 
         elif choice == "2":
